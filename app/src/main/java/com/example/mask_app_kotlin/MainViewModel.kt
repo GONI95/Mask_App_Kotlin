@@ -13,6 +13,8 @@ import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
+//https://iosroid.tistory.com/88
+//https://doitddo.tistory.com/90
 class MainViewModel : ViewModel() {
     var itemLiveData = MutableLiveData<List<Store>>()
     var loadingLiveData = MutableLiveData<Boolean>()
@@ -36,7 +38,14 @@ class MainViewModel : ViewModel() {
         viewModelScope.launch(Dispatchers.Main) {
             val storeInfo = service.fetchStoreInfo()    // 결과를 storeInfo에 반환
             itemLiveData.value = storeInfo.stores   // 반환된 stores를 LiveData에 저장
-
+                .filter { item ->
+                    item.remain_stat != null
+                }
+                // null 값을 제외한 List로 필터링
+                .sortedBy { item ->
+                    item.name
+                }
+                // 이름 순으로 정렬
             loadingLiveData.value = false   //  Progress Bar 값 false
 
         }
