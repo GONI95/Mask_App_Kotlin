@@ -58,4 +58,7 @@ dependencies {
     implementation "com.google.android.gms:play-services-location:17.1.0"
     //기존에 어려운 퍼미션을 수훨하게 작업해주는 라이브러리
     implementation 'gun0912.ted:tedpermission:2.2.3'
+
+    // 뷰모델을 확장함수를 이용해 초기화하여 사용하기위해 추가, activity나 fragment 둘 다 가능하다
+    implementation "androidx.fragment:fragment-ktx:1.2.4"
 }
