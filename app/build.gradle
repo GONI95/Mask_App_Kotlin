@@ -42,4 +42,20 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    // 제이슨 데이터 가져온 것을 모시를 이용해 컨버팅이 자동으로 이루어짐짐
+    implementation 'com.squareup.retrofit2:converter-moshi:2.9.0'
+    // 레트로핏
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+
+    def lifecycle_version = "2.2.0"
+
+    // ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    // LiveData
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+    //위치정보(FusedLocationProviderClient가 포함되어있음)
+    implementation "com.google.android.gms:play-services-location:17.1.0"
+    //기존에 어려운 퍼미션을 수훨하게 작업해주는 라이브러리
+    implementation 'gun0912.ted:tedpermission:2.2.3'
 }
